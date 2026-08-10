@@ -1,0 +1,37 @@
+:root {
+    /* --- Cores de Fundo (Background) --- */
+    --background-primary: #FFFFFF;         /* Fundo principal (Branco) */
+    --background-secondary: #DCECE7;       /* Fundo secundário (Verde-água claro) */
+    --background-dark: #362183;            /* Fundo escuro (Roxo) */
+
+    /* --- Cores de Marca / Destaque --- */
+    --color-primary: #362183;              /* Cor Primária (Roxo) */
+    --color-secondary: #2C6378;            /* Cor Secundária (Azul escuro) */
+    --color-accent: #42B9DA;               /* Cor de Destaque / Botões / Links (Azul) */
+    --color-success: #AFD25F;              /* Cor de Sucesso / Destaque suave (Verde-lima) */
+
+    /* --- Cores de Texto --- */
+    --text-primary: #362183;               /* Texto principal em fundo claro */
+    --text-secondary: #2C6378;             /* Texto secundário / Subtítulos */
+    --text-on-dark: #FFFFFF;               /* Texto para usar sobre fundo escuro */
+}
+.logo{
+    font-family: "Rubik Spray Paint", system-ui;
+    font-weight: 200;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.6rem;
+    background-color: var(--background-dark);
+}
+
+.nav_lista{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav_lista_item{
+      font-family: "Ubuntu", sans-serif;
+}

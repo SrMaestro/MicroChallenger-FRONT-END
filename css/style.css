@@ -1,37 +1,52 @@
 :root {
-    /* --- Cores de Fundo (Background) --- */
-    --background-primary: #FFFFFF;         /* Fundo principal (Branco) */
-    --background-secondary: #DCECE7;       /* Fundo secundário (Verde-água claro) */
-    --background-dark: #362183;            /* Fundo escuro (Roxo) */
+  /* --- Cores de Fundo (Background) --- */
+  --background-primary: #ffffff; /* Fundo principal (Branco) */
+  --background-secondary: #dcece7; /* Fundo secundário (Verde-água claro) */
+  --background-dark: #362183; /* Fundo escuro (Roxo) */
 
-    /* --- Cores de Marca / Destaque --- */
-    --color-primary: #362183;              /* Cor Primária (Roxo) */
-    --color-secondary: #2C6378;            /* Cor Secundária (Azul escuro) */
-    --color-accent: #42B9DA;               /* Cor de Destaque / Botões / Links (Azul) */
-    --color-success: #AFD25F;              /* Cor de Sucesso / Destaque suave (Verde-lima) */
+  /* --- Cores de Marca / Destaque --- */
+  --color-primary: #362183; /* Cor Primária (Roxo) */
+  --color-secondary: #2c6378; /* Cor Secundária (Azul escuro) */
+  --color-accent: #42b9da; /* Cor de Destaque / Botões / Links (Azul) */
+  --color-success: #afd25f; /* Cor de Sucesso / Destaque suave (Verde-lima) */
 
-    /* --- Cores de Texto --- */
-    --text-primary: #362183;               /* Texto principal em fundo claro */
-    --text-secondary: #2C6378;             /* Texto secundário / Subtítulos */
-    --text-on-dark: #FFFFFF;               /* Texto para usar sobre fundo escuro */
-}
-.logo{
-    font-family: "Rubik Spray Paint", system-ui;
-    font-weight: 200;
-}
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 1.6rem;
-    background-color: var(--background-dark);
+  /* --- Cores de Texto --- */
+  --text-primary: #362183; /* Texto principal em fundo claro */
+  --text-secondary: #2c6378; /* Texto secundário / Subtítulos */
+  --text-on-dark: #ffffff; /* Texto para usar sobre fundo escuro */
 }
 
-.nav_lista{
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+.logo {
+  font-family: "Rubik Spray Paint", system-ui;
+  font-weight: 200;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem;
+  background-color: var(--background-dark);
 }
 
-.nav_lista_item{
-      font-family: "Ubuntu", sans-serif;
+.nav_lista {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav_lista_item {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.texto_destaque {
+  font-family: "Rubik Spray Paint", system-ui;
+  font-weight: 200;
+}
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: auto 100px auto; /* Three rows with different heights */
+}
+
+.nome {
+  font-size: 40;
 }

@@ -98,3 +98,5 @@ N/A.
 ### Aula 06
 - Action / Desenvolvimento.
 - Entrega.
+
+https://patiohype.com.br/10-sites-famosos-nos-anos-2000-que-foram-desativados/

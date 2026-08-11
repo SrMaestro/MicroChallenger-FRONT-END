@@ -96,3 +96,24 @@ nav{
   color: var(--focus-color);
 }
 
+
+/* Hero */
+.hero_container{
+  padding: 40px 20px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  box-sizing: border-box;
+}
+
+
+.hero_flex{
+  display: flex; 
+  align-items: center;
+  justify-content:space-evenly ;
+}
+
+.flex_container_hero{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}

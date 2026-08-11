@@ -1,52 +1,98 @@
 :root {
   /* --- Cores de Fundo (Background) --- */
-  --background-primary: #ffffff; /* Fundo principal (Branco) */
-  --background-secondary: #dcece7; /* Fundo secundário (Verde-água claro) */
-  --background-dark: #362183; /* Fundo escuro (Roxo) */
-
-  /* --- Cores de Marca / Destaque --- */
-  --color-primary: #362183; /* Cor Primária (Roxo) */
-  --color-secondary: #2c6378; /* Cor Secundária (Azul escuro) */
-  --color-accent: #42b9da; /* Cor de Destaque / Botões / Links (Azul) */
-  --color-success: #afd25f; /* Cor de Sucesso / Destaque suave (Verde-lima) */
-
-  /* --- Cores de Texto --- */
-  --text-primary: #362183; /* Texto principal em fundo claro */
-  --text-secondary: #2c6378; /* Texto secundário / Subtítulos */
-  --text-on-dark: #ffffff; /* Texto para usar sobre fundo escuro */
+  --background-primary: #121214; /* Fundo principal (Branco) */
+  --text-primary : #6B6B7A;
+  --focus-color : #00FF66;
 }
 
-.logo {
-  font-family: "Rubik Spray Paint", system-ui;
-  font-weight: 200;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-.header {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Header */
+
+nav{
   display: flex;
-  justify-content: space-between;
-  padding: 1.6rem;
-  background-color: var(--background-dark);
+  align-items: center;
+  justify-content: center;
+  padding: 1.7rem;
+ background-color: var(--background-primary);
+ justify-content: space-between;
+ 
 }
 
-.nav_lista {
+.logo{
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+}
+
+.nav_container{
   display: flex;
   gap: 2rem;
-  list-style: none;
 }
 
-.nav_lista_item {
-  font-family: "Ubuntu", sans-serif;
+.logo_text{
+  color: var(--text-primary);
+  font-family: "JetBrains Mono", monospace;
 }
 
-.texto_destaque {
-  font-family: "Rubik Spray Paint", system-ui;
-  font-weight: 200;
-}
-.main-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-  grid-template-rows: auto 100px auto; /* Three rows with different heights */
+.logo_text_background{
+  background-color: var(--focus-color);
+  padding:7px;
 }
 
-.nome {
-  font-size: 40;
+.logo_text.logo_text_background {
+    font-family: "Anton", sans-serif;
 }
+.nav_link{
+  color: var(--text-primary);
+  font-size: 12px;
+  text-decoration: none;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.nav_link_projects{
+  color: var(--focus-color);
+}
+

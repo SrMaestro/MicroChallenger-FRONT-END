@@ -1,7 +1,11 @@
 :root {
   /* --- Cores de Fundo (Background) --- */
   --background-primary: #121214; /* Fundo principal (Branco) */
+  --background-secondary: #1A1A1F;
   --text-primary : #6B6B7A;
+  --text-secondary: #9090A0;
+  --text-third:#F0F0F0;
+  --text-btn-primary : #121214;
   --focus-color : #00FF66;
 }
 
@@ -48,6 +52,49 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+h1{
+  color: var(--text-third);
+  font-family: "Anton", sans-serif;
+  
+  font-size: 48px;
+}
+
+.btn_work{
+  font-size: 0.6rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color:var(--focus-color);
+  color: var(--text-btn-primary);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #2a8f39;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+.btn_get{
+   font-size: 0.6rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color:var(--focus-color);
+  color: var(--text-btn-primary);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #2a8f39;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+
 
 /* Header */
 
@@ -99,12 +146,12 @@ nav{
 
 /* Hero */
 .hero_container{
+  background-color: var(--background-primary);
   padding: 40px 20px; 
-  max-width: 1200px; 
+  max-width: 1400px; 
   margin: 0 auto; 
   box-sizing: border-box;
 }
-
 
 .hero_flex{
   display: flex; 
@@ -116,4 +163,71 @@ nav{
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  padding: 40px 20px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  box-sizing: border-box;
+}
+
+.hero_text_forwork{
+  color: var(--focus-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+}
+
+.developer{
+  color: var(--focus-color);
+  font-family: "Anton", sans-serif;
+  font-size: 48px;
+
+}
+
+.crafting_sharp{
+  color: var(--text-primary);
+  font-family: "Anton", sans-serif;
+  font-size: 18px;
+}
+
+.hero_description{
+  color: var(--text-secondary);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  
+}
+
+/* Container do Grid */
+.stacks_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; 
+  padding: 20px;
+}
+
+/* Estilização básica dos cards (cada div filha) */
+.stacks_container > div {
+  background-color: #1e1e2e;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #313244;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Estilização interna dos elementos do card */
+.stacks_container > div span {
+  font-size: 0.875rem;
+  color: #89b4fa;
+  font-weight: bold;
+}
+
+.stacks_container > div p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.stacks{
+  background-color: var(--background-secondary);
+  
 }

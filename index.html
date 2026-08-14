@@ -1,102 +1,111 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Dev Maestro | Portfolio</title>
+
+  <!-- Google Fonts Consolidado -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Rubik+Spray+Paint&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-    rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-    rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+
+  <!-- CSS Principal -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <nav>
-    <div class="logo">
-      <div class="backround_logo">
-        <span class="logo_text logo_text_background  ">Dev</span>
+  <!-- Header / Nav -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo__text logo__text--highlight">Dev</span>
+        <span class="logo__text">Maestro</span>
+      </a>
+
+      <div class="nav__container">
+        <a class="nav__link" href="#about">ABOUT</a>
+        <a class="nav__link" href="#skills">SKILLS</a>
+        <a class="nav__link nav__link--active" href="#projects">PROJECTS</a>
+        <a class="nav__link" href="#experience">EXPERIENCE</a>
+        <a class="nav__link" href="#contact">CONTACT</a>
       </div>
-      <span class="logo_text">Maestro</span>
-    </div>
+    </nav>
+  </header>
 
-    <div class="nav_container">
-      <a class="nav_link" href="">ABOUT</a>
-      <a class="nav_link" href="">SKILLS</a>
-      <a class="nav_link nav_link_projects" href="">PROJECTS</a>
-      <a class="nav_link" href="">EXPERIENCE</a>
-      <a class="nav_link" href="">CONTACT</a>
-    </div>
-  </nav>
-
-
-  <section class="hero_container">
-    <div class="hero_flex">
-      <div class="flex_container_hero">
-        <span class="hero_text_forwork">AVAIBLE FOR WORK</span>
-        <h1> Full-Stack<br>
-          <span class="developer">Developer</span></h1>
-        <p class="crafting_sharp">
-          Crafting Sharp<br>
+  <!-- Hero Section -->
+  <section class="hero hero__container">
+    <div class="hero__flex">
+      <div class="hero__content">
+        <span class="hero__tag">AVAILABLE FOR WORK</span>
+        <h1 class="hero__title">
+          Full-Stack<br />
+          <span class="hero__title--highlight">Developer</span>
+        </h1>
+        <p class="hero__subtitle">
+          Crafting Sharp<br />
           Digital Products
         </p>
-        <p class="hero_description">6+ years building performant web systems — from pixel-perfect UIs to battle-hardened APIs. I write code the
-          way a blade is forged: precise, sharp, and built to last.</p>
-        <div>
-          <a href="" class="btn_work">View Work</a>
-          <a href="" class="btn_get">Get In Touch</a>
+        <p class="hero__description">
+          6+ years building performant web systems — from pixel-perfect UIs to battle-hardened APIs. 
+          I write code the way a blade is forged: precise, sharp, and built to last.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">View Work</a>
+          <a href="#contact" class="btn btn--outline">Get In Touch</a>
         </div>
       </div>
-      <div>
-        <img src="assets/images.jpg" alt="">
+      <div class="hero__image-wrapper">
+        <img class="hero__image" src="assets/images.jpg" alt="Developer Portrait" />
       </div>
     </div>
   </section>
 
-  <section class="stacks">
-    <span>02 / TECH STACK</span>
-    <h2>SHARP SKILLS.<br>
-    <span>ZERO COMPROMISES</span></h2>
-    <div class="stacks_container">
-      <div>
-        <span>#01</span>
-        <p>REACT</p>
-        <p>FRONTEND</p>
+  <!-- Tech Stacks Section -->
+  <section class="stacks hero__container">
+    <span class="hero__tag">02 / TECH STACK</span>
+    <h2 class="stacks__title">
+      SHARP SKILLS.<br />
+      <span class="stacks__title--accent">ZERO COMPROMISES</span>
+    </h2>
+
+    <div class="stacks__grid">
+      <div class="tech-card" style="--accent-color: #61dafb;">
+        <span class="tech-card__number">#01</span>
+        <p class="tech-card__title">REACT</p>
+        <p class="tech-card__category">FRONTEND</p>
       </div>
-       <div>
-        <span>#01</span>
-        <p>REACT</p>
-        <p>FRONTEND</p>
+
+      <div class="tech-card" style="--accent-color: #68a063;">
+        <span class="tech-card__number">#02</span>
+        <p class="tech-card__title">NODE.JS</p>
+        <p class="tech-card__category">BACKEND</p>
       </div>
-       <div>
-        <span>#01</span>
-        <p>REACT</p>
-        <p>FRONTEND</p>
+
+      <div class="tech-card" style="--accent-color: #3178c6;">
+        <span class="tech-card__number">#03</span>
+        <p class="tech-card__title">TYPESCRIPT</p>
+        <p class="tech-card__category">LANGUAGE</p>
       </div>
-       <div>
-        <span>#01</span>
-        <p>REACT</p>
-        <p>FRONTEND</p>
+
+      <div class="tech-card" style="--accent-color: #ea2845;">
+        <span class="tech-card__number">#04</span>
+        <p class="tech-card__title">NESTJS</p>
+        <p class="tech-card__category">BACKEND</p>
       </div>
     </div>
-
-    
   </section>
 
-
+   <!-- Tech Stacks Section -->
+    <section class="project_container stacks hero__container">
+      <span class="hero__tag">03 / FEATURE PROJECTS </span>
+    <h2 class="stacks__title">
+      SELECTED.<br />
+      <span class="Projects__title--accent">WORK</span>
+    </h2>
+      
+    </section>
 </body>
 
 </html>

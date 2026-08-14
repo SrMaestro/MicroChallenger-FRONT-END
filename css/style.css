@@ -1,233 +1,306 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE DESIGN & RESETS
+   ========================================================================== */
 :root {
-  /* --- Cores de Fundo (Background) --- */
-  --background-primary: #121214; /* Fundo principal (Branco) */
-  --background-secondary: #1A1A1F;
-  --text-primary : #6B6B7A;
-  --text-secondary: #9090A0;
-  --text-third:#F0F0F0;
-  --text-btn-primary : #121214;
-  --focus-color : #00FF66;
+  /* Cores de Fundo */
+  --bg-primary: #121214;
+  --bg-secondary: #1a1a1f;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-card: rgba(255, 255, 255, 0.08);
+
+  /* Cores de Texto */
+  --text-primary: #f0f0f0;
+  --text-secondary: #9090a0;
+  --text-muted: #6b6b7a;
+  --text-btn-primary: #121214;
+
+  /* Destaques e Acentos */
+  --focus-color: #00ff66;
+  --accent-color: #61dafb;
+  --accent-purple: #a855f7;
+  --accent-red : #FF2244;
+
+  /* Tipografia */
+  --font-display: "Anton", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+  --font-body: "Inter", sans-serif;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
+
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1{
-  color: var(--text-third);
-  font-family: "Anton", sans-serif;
-  
-  font-size: 48px;
-}
-
-.btn_work{
-  font-size: 0.6rem;
-  padding: 1rem 2.5rem;
-  border: none;
-  outline: none;
+/* ==========================================================================
+   2. COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
   border-radius: 0.4rem;
-  cursor: pointer;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  background-color:var(--focus-color);
-  color: var(--text-btn-primary);
-  font-weight: 700;
-  transition: 0.6s;
-  box-shadow: 0px 0px 60px #2a8f39;
-  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-}
-
-.btn_get{
-   font-size: 0.6rem;
-  padding: 1rem 2.5rem;
-  border: none;
-  outline: none;
-  border-radius: 0.4rem;
   cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: none;
-  background-color:var(--focus-color);
-  color: var(--text-btn-primary);
-  font-weight: 700;
-  transition: 0.6s;
-  box-shadow: 0px 0px 60px #2a8f39;
-  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn--primary {
+  background-color: var(--focus-color);
+  color: var(--text-btn-primary);
+  border: 1px solid var(--focus-color);
+  box-shadow: 0px 0px 20px rgba(0, 255, 102, 0.3);
+}
 
+.btn--primary:hover {
+  box-shadow: 0px 0px 30px rgba(0, 255, 102, 0.5);
+  transform: translateY(-2px);
+}
 
-/* Header */
+.btn--outline {
+  background-color: transparent;
+  color: var(--focus-color);
+  border: 1px solid var(--focus-color);
+}
 
-nav{
+.btn--outline:hover {
+  background-color: rgba(0, 255, 102, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. HEADER & NAVEGAÇÃO
+   ========================================================================== */
+.header {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-card);
+}
+
+.nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1.7rem;
- background-color: var(--background-primary);
- justify-content: space-between;
- 
+  justify-content: space-between;
 }
 
-.logo{
+.logo {
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
-.nav_container{
+.logo__text {
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 1rem;
+}
+
+.logo__text--highlight {
+  background-color: var(--focus-color);
+  color: var(--text-btn-primary);
+  font-family: var(--font-display);
+  padding: 4px 8px;
+}
+
+.nav__container {
   display: flex;
   gap: 2rem;
 }
 
-.logo_text{
-  color: var(--text-primary);
-  font-family: "JetBrains Mono", monospace;
-}
-
-.logo_text_background{
-  background-color: var(--focus-color);
-  padding:7px;
-}
-
-.logo_text.logo_text_background {
-    font-family: "Anton", sans-serif;
-}
-.nav_link{
-  color: var(--text-primary);
-  font-size: 12px;
+.nav__link {
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.8rem;
   text-decoration: none;
-  font-family: "JetBrains Mono", monospace;
+  transition: color 0.3s ease;
 }
 
-.nav_link_projects{
+.nav__link:hover,
+.nav__link--active {
   color: var(--focus-color);
 }
 
-
-/* Hero */
-.hero_container{
-  background-color: var(--background-primary);
-  padding: 40px 20px; 
-  max-width: 1400px; 
-  margin: 0 auto; 
-  box-sizing: border-box;
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
 }
 
-.hero_flex{
-  display: flex; 
+.hero__flex {
+  display: flex;
   align-items: center;
-  justify-content:space-evenly ;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.flex_container_hero{
+.hero__content {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  padding: 40px 20px; 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  box-sizing: border-box;
+  max-width: 650px;
 }
 
-.hero_text_forwork{
+.hero__tag {
   color: var(--focus-color);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
 }
 
-.developer{
-  color: var(--focus-color);
-  font-family: "Anton", sans-serif;
-  font-size: 48px;
-
-}
-
-.crafting_sharp{
+.hero__title {
   color: var(--text-primary);
-  font-family: "Anton", sans-serif;
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1.05;
+  text-transform: uppercase;
 }
 
-.hero_description{
+.hero__title--highlight {
+  color: var(--focus-color);
+}
+
+.hero__subtitle {
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.hero__description {
   color: var(--text-secondary);
-  font-family: "Inter", sans-serif;
-  font-size: 15px;
-  
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-/* Container do Grid */
-.stacks_container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px; 
-  padding: 20px;
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-/* Estilização básica dos cards (cada div filha) */
-.stacks_container > div {
-  background-color: #1e1e2e;
-  color: #ffffff;
-  padding: 20px;
+.hero__image-wrapper img {
+  max-width: 100%;
   border-radius: 12px;
-  border: 1px solid #313244;
+}
+
+/* ==========================================================================
+   5. TECH STACKS & CARDS
+   ========================================================================== */
+.stacks {
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
+}
+
+.stacks__title {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.stacks__title--accent {
+  color: var(--accent-purple);
+}
+
+.stacks__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Tech Card */
+.tech-card {
+  position: relative;
+  height: 160px;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-/* Estilização interna dos elementos do card */
-.stacks_container > div span {
+.tech-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--accent-color) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(97, 218, 251, 0.15);
+}
+
+.tech-card:hover::before {
+  opacity: 0.12;
+}
+
+.tech-card__number {
+  font-family: var(--font-code);
   font-size: 0.875rem;
-  color: #89b4fa;
-  font-weight: bold;
+  font-weight: 700;
+  color: var(--accent-color);
 }
 
-.stacks_container > div p {
-  margin: 0;
+.tech-card__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.tech-card__category {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
   font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
 }
 
-.stacks{
-  background-color: var(--background-secondary);
-  
+/* ============================================================
+PROJECTS
+=============================================================== */
+
+.Projects__title--accent{
+  color: var(--accent-red);
+}
+
+.project_container{
+  background-color:var(--bg-primary);
 }

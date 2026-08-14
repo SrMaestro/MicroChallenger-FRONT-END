@@ -18,7 +18,7 @@
   --focus-color: #00ff66;
   --accent-color: #61dafb;
   --accent-purple: #a855f7;
-  --accent-red : #FF2244;
+  --accent-red: #FF2244;
 
   /* Tipografia */
   --font-display: "Anton", sans-serif;
@@ -32,6 +32,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -55,7 +59,10 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Performance: Apenas propriedades necessárias */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
 }
 
 .btn--primary {
@@ -85,7 +92,12 @@ body {
    3. HEADER & NAVEGAÇÃO
    ========================================================================== */
 .header {
-  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-card);
 }
 
@@ -136,13 +148,17 @@ body {
   color: var(--focus-color);
 }
 
+.nav__toggle {
+  display: none;
+}
+
 /* ==========================================================================
    4. HERO SECTION
    ========================================================================== */
 .hero__container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .hero__flex {
@@ -197,9 +213,22 @@ body {
   margin-top: 0.5rem;
 }
 
-.hero__image-wrapper img {
-  max-width: 100%;
+.hero__image-wrapper {
+  max-width: 400px;
+  width: 100%;
+}
+
+.hero__image {
+  width: 100%;
+  height: auto;
   border-radius: 12px;
+  border: 1px solid var(--border-card);
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.hero__image:hover {
+  filter: grayscale(0%);
 }
 
 /* ==========================================================================
@@ -223,13 +252,14 @@ body {
   color: var(--accent-purple);
 }
 
+/* Grid Fluida Flexível */
 .stacks__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 20px;
 }
 
-/* Tech Card */
+/* Tech Card Interativo */
 .tech-card {
   position: relative;
   height: 160px;
@@ -243,18 +273,22 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
   cursor: pointer;
 }
 
+/* Radial Gradient com Dinâmica via JS */
 .tech-card::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, var(--accent-color) 0%, transparent 70%);
+  top: var(--mouse-y, -50%);
+  left: var(--mouse-x, -50%);
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -268,7 +302,7 @@ body {
 }
 
 .tech-card:hover::before {
-  opacity: 0.12;
+  opacity: 0.25;
 }
 
 .tech-card__number {
@@ -293,46 +327,38 @@ body {
   letter-spacing: 1px;
 }
 
-/* ============================================================
-PROJECTS
-=============================================================== */
+/* ==========================================================================
+   6. PROJECTS SECTION
+   ========================================================================== */
+.project_container {
+  background-color: var(--bg-primary);
+}
 
-.Projects__title--accent{
+.project__title--accent {
   color: var(--accent-red);
 }
 
-.project_container{
-  background-color:var(--bg-primary);
-}
-
-/* ==========================================================================
-   PROJECTS SECTION & CARDS
-   ========================================================================== */
-
-/* Grid do Container de Projetos */
+/* Grid do Container de Projetos (Sem duplicatas) */
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
   gap: 24px;
 }
-
-.project__title--accent{
-  color: var(--accent-red);
-}
-
 
 /* Card do Projeto */
 .project-card {
   position: relative;
-  background: var(--bg-card, rgba(255, 255, 255, 0.03));
-  border: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
 }
 
 .project-card:hover {
@@ -342,13 +368,12 @@ PROJECTS
               0 0 25px rgba(97, 218, 251, 0.15);
 }
 
-/* Wrapper da Imagem */
 .project-card__image-wrapper {
   position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
-  background-color: var(--bg-secondary, #1a1a1f);
+  background-color: var(--bg-secondary);
 }
 
 .project-card__image {
@@ -364,7 +389,6 @@ PROJECTS
   filter: grayscale(0%);
 }
 
-/* Conteúdo Interno */
 .project-card__content {
   padding: 1.5rem;
   display: flex;
@@ -372,27 +396,24 @@ PROJECTS
   flex-grow: 1;
 }
 
-/* Título */
 .project-card__title {
-  font-family: var(--font-display, "Anton", sans-serif);
+  font-family: var(--font-display);
   font-size: 1.75rem;
-  color: var(--text-primary, #f0f0f0);
+  color: var(--text-primary);
   letter-spacing: 1px;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
 }
 
-/* Descrição */
 .project-card__description {
-  font-family: var(--font-body, "Inter", sans-serif);
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--text-secondary, #9090a0);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
-/* Tags de Tecnologias */
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -403,7 +424,7 @@ PROJECTS
 }
 
 .project-card__tag {
-  font-family: var(--font-code, "JetBrains Mono", monospace);
+  font-family: var(--font-code);
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--accent-color);
@@ -420,20 +441,19 @@ PROJECTS
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Ações / Links (Demo & GitHub) */
 .project-card__actions {
   display: flex;
   align-items: center;
   gap: 16px;
   padding-top: 1rem;
-  border-top: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
+  border-top: 1px solid var(--border-card);
 }
 
 .project-card__link {
-  font-family: var(--font-code, "JetBrains Mono", monospace);
+  font-family: var(--font-code);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--text-primary, #f0f0f0);
+  color: var(--text-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -445,31 +465,8 @@ PROJECTS
   color: var(--accent-color);
 }
 
-.project-card__link--github {
-  color: var(--text-secondary, #9090a0);
-}
-
-.project-card__link--github:hover {
-  color: var(--text-primary, #f0f0f0);
-}
-
-/* Container dos Cards em 2 colunas */
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Força exatamente 2 colunas de tamanhos iguais */
-  gap: 24px;
-}
-
-/* Responsividade: Em celulares (telas menores que 768px), ajusta para 1 coluna */
-@media (max-width: 768px) {
-  .projects__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
 /* ==========================================================================
-   FOOTER SECTION
+   7. FOOTER SECTION
    ========================================================================== */
 .footer {
   background-color: var(--bg-primary);
@@ -483,7 +480,6 @@ PROJECTS
   margin: 0 auto;
 }
 
-/* Call to Action */
 .footer__cta {
   display: flex;
   flex-direction: column;
@@ -511,11 +507,6 @@ PROJECTS
   line-height: 1.6;
 }
 
-.footer__btn {
-  margin-top: 0.5rem;
-}
-
-/* Divisor Sutil */
 .footer__divider {
   border: 0;
   height: 1px;
@@ -523,7 +514,6 @@ PROJECTS
   margin-bottom: 40px;
 }
 
-/* Conteúdo Inferior */
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -545,7 +535,6 @@ PROJECTS
   color: var(--text-muted);
 }
 
-/* Lista de Redes Sociais */
 .footer__socials {
   display: flex;
   flex-wrap: wrap;
@@ -555,7 +544,6 @@ PROJECTS
   margin: 0;
 }
 
-/* Card/Badge de cada Rede (com acento de cor dinamico via var(--accent-color)) */
 .footer__social-link {
   display: inline-flex;
   align-items: center;
@@ -571,7 +559,10 @@ PROJECTS
   color: var(--text-primary);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .footer__social-link:hover {
@@ -591,7 +582,6 @@ PROJECTS
   transform: translate(2px, -2px);
 }
 
-/* Copyright */
 .footer__copyright {
   text-align: center;
   padding-top: 20px;
@@ -601,12 +591,27 @@ PROJECTS
   color: var(--text-muted);
 }
 
-/* Responsividade Mobile */
+/* ==========================================================================
+   8. RESPONSIVIDADE & ACESSIBILIDADE
+   ========================================================================== */
 @media (max-width: 768px) {
+  .hero__flex {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__title {
+    font-size: 2.75rem;
+  }
+
   .footer__title {
     font-size: 2.5rem;
   }
-  
+
   .footer__bottom {
     flex-direction: column;
     gap: 24px;
@@ -619,5 +624,14 @@ PROJECTS
   .footer__social-link {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+/* Respeito a usuários com sensibilidade a movimentos */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dev Maestro | Portfolio</title>
+  <title>Luis Felipe Leão | Full Stack Developer</title>
 
   <!-- Google Fonts Consolidado -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
 
   <!-- CSS Principal -->
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -26,50 +27,53 @@
         <span class="logo__text">Maestro</span>
       </a>
 
+      <button class="nav__toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+
       <div class="nav__container">
         <a class="nav__link" href="#about">ABOUT</a>
         <a class="nav__link" href="#skills">SKILLS</a>
         <a class="nav__link nav__link--active" href="#projects">PROJECTS</a>
-        <a class="nav__link" href="#experience">EXPERIENCE</a>
         <a class="nav__link" href="#contact">CONTACT</a>
       </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero hero__container">
+  <section class="hero hero__container" id="about">
     <div class="hero__flex">
       <div class="hero__content">
-        <span class="hero__tag">AVAILABLE FOR WORK</span>
+        <span class="hero__tag">AVAILABLE FOR OPPORTUNITIES</span>
         <h1 class="hero__title">
           Full-Stack<br />
           <span class="hero__title--highlight">Developer</span>
         </h1>
         <p class="hero__subtitle">
-          Crafting Sharp<br />
-          Digital Products
+          JavaScript & TypeScript Specialist
         </p>
         <p class="hero__description">
-          6+ years building performant web systems — from pixel-perfect UIs to battle-hardened APIs.
-          I write code the way a blade is forged: precise, sharp, and built to last.
+          Desenvolvedor Full Stack com foco na criação de interfaces modernas em React e APIs RESTful escaláveis com
+          Node.js e NestJS[cite: 1]. Experiência prática em microsserviços, bancos relacionais e boas práticas de
+          arquitetura de código[cite: 1].
         </p>
         <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">View Work</a>
-          <a href="#contact" class="btn btn--outline">Get In Touch</a>
+          <a href="#projects" class="btn btn--primary">Ver Projetos</a>
+          <a href="#contact" class="btn btn--outline">Contato</a>
         </div>
       </div>
       <div class="hero__image-wrapper">
-        <img class="hero__image" src="assets/images.jpg" alt="Developer Portrait" />
+        <img class="hero__image" src="assets/luis-felipe-ramires-leao.webp" alt="Foto de perfil de Luis Felipe Leão" />
       </div>
     </div>
   </section>
 
   <!-- Tech Stacks Section -->
-  <section class="stacks hero__container">
+  <section class="stacks hero__container" id="skills">
     <span class="hero__tag">02 / TECH STACK</span>
     <h2 class="stacks__title">
-      SHARP SKILLS.<br />
-      <span class="stacks__title--accent">ZERO COMPROMISES</span>
+      DOMÍNIO TÉCNICO.<br />
+      <span class="stacks__title--accent">FOCO EM RESULTADO</span>
     </h2>
 
     <div class="stacks__grid">
@@ -79,9 +83,9 @@
         <p class="tech-card__category">FRONTEND</p>
       </div>
 
-      <div class="tech-card" style="--accent-color: #68a063;">
+      <div class="tech-card" style="--accent-color: #ea2845;">
         <span class="tech-card__number">#02</span>
-        <p class="tech-card__title">NODE.JS</p>
+        <p class="tech-card__title">NESTJS</p>
         <p class="tech-card__category">BACKEND</p>
       </div>
 
@@ -91,10 +95,10 @@
         <p class="tech-card__category">LANGUAGE</p>
       </div>
 
-      <div class="tech-card" style="--accent-color: #ea2845;">
+      <div class="tech-card" style="--accent-color: #00758f;">
         <span class="tech-card__number">#04</span>
-        <p class="tech-card__title">NESTJS</p>
-        <p class="tech-card__category">BACKEND</p>
+        <p class="tech-card__title">MYSQL</p>
+        <p class="tech-card__category">DATABASE</p>
       </div>
     </div>
   </section>
@@ -103,112 +107,85 @@
   <section class="project_container stacks hero__container" id="projects">
     <span class="hero__tag">03 / FEATURE PROJECTS</span>
     <h2 class="stacks__title">
-      SELECTED.<br />
-      <span class="project__title--accent">WORK</span>
+      PROJETOS.<br />
+      <span class="project__title--accent">EM DESTAQUE</span>
     </h2>
 
-    <!-- GRID ÚNICA (todos os cards são filhos diretos) -->
     <div class="projects__grid">
 
-      <!-- Card 1 -->
+      <!-- Projeto 1: Clix -->
       <div class="project-card" style="--accent-color: #61dafb;">
         <div class="project-card__image-wrapper">
-          <img src="assets/crm-preview.jpg" alt="Preview do projeto CRM" class="project-card__image" />
+          <img src="assets/clix-preview.jpg" alt="Preview da plataforma de CRM Clix" class="project-card__image" />
         </div>
         <div class="project-card__content">
-          <h3 class="project-card__title">CRM SYSTEM</h3>
+          <h3 class="project-card__title">CLIX - CRM SYSTEM</h3>
           <p class="project-card__description">
-            Headless content management system with real-time collaboration, custom blocks, and webhook integrations.
+            Sistema de CRM front-end focado na organização de clientes e apoio a equipes de vendas[cite: 1]. Apresenta
+            navegação responsiva, tokens de design visual e componentização limpa em React[cite: 1].
           </p>
           <ul class="project-card__tags">
-            <li class="project-card__tag">NEXTJS</li>
-            <li class="project-card__tag">POSTGRES</li>
+            <li class="project-card__tag">REACT</li>
             <li class="project-card__tag">TYPESCRIPT</li>
+            <li class="project-card__tag">TAILWIND</li>
+            <li class="project-card__tag">VITE</li>
           </ul>
           <div class="project-card__actions">
-            <a href="#" class="project-card__link" target="_blank" rel="noopener noreferrer">
-              View Demo <span>&rarr;</span>
-            </a>
-            <a href="#" class="project-card__link project-card__link--github" target="_blank" rel="noopener noreferrer">
-              GitHub
+            <a href="https://github.com/SrMaestro" class="project-card__link project-card__link--github" target="_blank"
+              rel="noopener noreferrer">
+              GitHub Repository &rarr;
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="project-card" style="--accent-color: #68a063;">
-        <div class="project-card__image-wrapper">
-          <img src="assets/crm-preview.jpg" alt="Preview do projeto CRM" class="project-card__image" />
-        </div>
-        <div class="project-card__content">
-          <h3 class="project-card__title">CRM SYSTEM</h3>
-          <p class="project-card__description">
-            Headless content management system with real-time collaboration, custom blocks, and webhook integrations.
-          </p>
-          <ul class="project-card__tags">
-            <li class="project-card__tag">NEXTJS</li>
-            <li class="project-card__tag">POSTGRES</li>
-            <li class="project-card__tag">TYPESCRIPT</li>
-          </ul>
-          <div class="project-card__actions">
-            <a href="#" class="project-card__link" target="_blank" rel="noopener noreferrer">
-              View Demo <span>&rarr;</span>
-            </a>
-            <a href="#" class="project-card__link project-card__link--github" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="project-card" style="--accent-color: #3178c6;">
-        <div class="project-card__image-wrapper">
-          <img src="assets/crm-preview.jpg" alt="Preview do projeto CRM" class="project-card__image" />
-        </div>
-        <div class="project-card__content">
-          <h3 class="project-card__title">CRM SYSTEM</h3>
-          <p class="project-card__description">
-            Headless content management system with real-time collaboration, custom blocks, and webhook integrations.
-          </p>
-          <ul class="project-card__tags">
-            <li class="project-card__tag">NEXTJS</li>
-            <li class="project-card__tag">POSTGRES</li>
-            <li class="project-card__tag">TYPESCRIPT</li>
-          </ul>
-          <div class="project-card__actions">
-            <a href="#" class="project-card__link" target="_blank" rel="noopener noreferrer">
-              View Demo <span>&rarr;</span>
-            </a>
-            <a href="#" class="project-card__link project-card__link--github" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
+      <!-- Projeto 2: Colab+ -->
       <div class="project-card" style="--accent-color: #ea2845;">
         <div class="project-card__image-wrapper">
-          <img src="assets/crm-preview.jpg" alt="Preview do projeto CRM" class="project-card__image" />
+          <img src="assets/colab-preview.jpg" alt="Preview da API do sistema Colab+" class="project-card__image" />
         </div>
         <div class="project-card__content">
-          <h3 class="project-card__title">CRM SYSTEM</h3>
+          <h3 class="project-card__title">COLAB+ RH API</h3>
           <p class="project-card__description">
-            Headless content management system with real-time collaboration, custom blocks, and webhook integrations.
+            API RESTful para gestão de RH moderna[cite: 1]. Implementa controle de autenticação, segurança, CRUD de
+            colaboradores/cargos e cálculo automatizado de regras de negócio de folha de pagamento[cite: 1].
           </p>
           <ul class="project-card__tags">
-            <li class="project-card__tag">NEXTJS</li>
-            <li class="project-card__tag">POSTGRES</li>
+            <li class="project-card__tag">NESTJS</li>
             <li class="project-card__tag">TYPESCRIPT</li>
+            <li class="project-card__tag">MYSQL</li>
+            <li class="project-card__tag">TYPEORM</li>
           </ul>
           <div class="project-card__actions">
-            <a href="#" class="project-card__link" target="_blank" rel="noopener noreferrer">
-              View Demo <span>&rarr;</span>
+            <a href="https://github.com/SrMaestro" class="project-card__link project-card__link--github" target="_blank"
+              rel="noopener noreferrer">
+              GitHub Repository &rarr;
             </a>
-            <a href="#" class="project-card__link project-card__link--github" target="_blank" rel="noopener noreferrer">
-              GitHub
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto 3: NutriGo -->
+      <div class="project-card" style="--accent-color: #68a063;">
+        <div class="project-card__image-wrapper">
+          <img src="assets/nutrigo-preview.jpg" alt="Preview do sistema NutriGo" class="project-card__image" />
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">NUTRIGO DELIVERY</h3>
+          <p class="project-card__description">
+            API RESTful para e-commerce de alimentos saudáveis. Desenvolvida com relacionamentos complexos 1:N no
+            TypeORM, modelagem de dados robusta e filtros inteligentes de produtos fit[cite: 1].
+          </p>
+          <ul class="project-card__tags">
+            <li class="project-card__tag">NESTJS</li>
+            <li class="project-card__tag">TYPESCRIPT</li>
+            <li class="project-card__tag">MYSQL</li>
+            <li class="project-card__tag">TYPEORM</li>
+          </ul>
+          <div class="project-card__actions">
+            <a href="https://github.com/SrMaestro" class="project-card__link project-card__link--github" target="_blank"
+              rel="noopener noreferrer">
+              GitHub Repository &rarr;
             </a>
           </div>
         </div>
@@ -220,56 +197,49 @@
   <!-- Footer Section -->
   <footer class="footer" id="contact">
     <div class="footer__container">
-      
-      <!-- Topo do Footer: Call to Action -->
+
       <div class="footer__cta">
-        <span class="hero__tag">04 / WHAT'S NEXT?</span>
+        <span class="hero__tag">04 / CONTATO</span>
         <h2 class="footer__title">
-          LET'S WORK<br />
-          <span class="footer__title--highlight">TOGETHER</span>
+          VAMOS CONSTRUIR<br />
+          <span class="footer__title--highlight">ALGO JUNTO?</span>
         </h2>
         <p class="footer__description">
-          Estou sempre aberto a novos desafios, projetos freelance ou oportunidades de tempo integral.
+          Aberto a oportunidades de atuação como desenvolvedor Full Stack ou Front-end. Mande uma mensagem!
         </p>
-        <a href="mailto:seuemail@dominio.com" class="btn btn--primary footer__btn">
-          Iniciar Conversa &rarr;
+        <a href="mailto:luisramires.dev@gmail.com" class="btn btn--primary footer__btn">
+          Enviar E-mail &rarr;
         </a>
       </div>
 
       <hr class="footer__divider" />
 
-      <!-- Base do Footer: Logo, Redes e Copyright -->
       <div class="footer__bottom">
         <div class="footer__info">
           <a href="#" class="logo">
             <span class="logo__text logo__text--highlight">Dev</span>
             <span class="logo__text">Maestro</span>
           </a>
-          <p class="footer__location">Porto Alegre, RS — Brasil</p>
+          <p class="footer__location">Porto Alegre, RS — Brasil[cite: 1]</p>
         </div>
 
-        <!-- Links das Redes Sociais -->
         <ul class="footer__socials">
           <li>
-            <a href="https://github.com/seudeveloper" target="_blank" rel="noopener noreferrer" class="footer__social-link" style="--accent-color: #f0f0f0;">
+            <a href="https://github.com/SrMaestro" target="_blank" rel="noopener noreferrer" class="footer__social-link"
+              style="--accent-color: #f0f0f0;">
               <span class="footer__social-name">GITHUB</span>
               <span class="footer__social-arrow">&nearr;</span>
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/seudeveloper" target="_blank" rel="noopener noreferrer" class="footer__social-link" style="--accent-color: #0a66c2;">
+            <a href="https://linkedin.com/in/luisfele%C3%A3o" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link" style="--accent-color: #0a66c2;">
               <span class="footer__social-name">LINKEDIN</span>
               <span class="footer__social-arrow">&nearr;</span>
             </a>
           </li>
           <li>
-            <a href="https://instagram.com/seudeveloper" target="_blank" rel="noopener noreferrer" class="footer__social-link" style="--accent-color: #e1306c;">
-              <span class="footer__social-name">INSTAGRAM</span>
-              <span class="footer__social-arrow">&nearr;</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:seuemail@dominio.com" class="footer__social-link" style="--accent-color: #00ff66;">
+            <a href="mailto:luisramires.dev@gmail.com" class="footer__social-link" style="--accent-color: #00ff66;">
               <span class="footer__social-name">EMAIL</span>
               <span class="footer__social-arrow">&nearr;</span>
             </a>
@@ -277,9 +247,8 @@
         </ul>
       </div>
 
-      <!-- Copyright -->
       <div class="footer__copyright">
-        <p>&copy; 2026 Dev Maestro. Crafted with sharp precision.</p>
+        <p>&copy; 2026 Luis Felipe Leão. Desenvolvido com HTML, CSS e JS puro.</p>
       </div>
 
     </div>

@@ -159,3 +159,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchGithubInfo('SrMaestro');
 });
+
+/* ==========================================================================
+   TELA DE LOADING (PRELOADER)
+   ========================================================================== */
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    // Pequeno atraso para dar tempo da animação ser vista suavemente
+    setTimeout(() => {
+      preloader.classList.add('loader--hidden');
+    }, 1000);
+  }
+});

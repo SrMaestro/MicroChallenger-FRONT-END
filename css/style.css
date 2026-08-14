@@ -327,6 +327,8 @@ body {
   letter-spacing: 1px;
 }
 
+
+
 /* ==========================================================================
    6. PROJECTS SECTION
    ========================================================================== */
@@ -633,5 +635,85 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   PRELOADER / TELA DE LOADING
+   ========================================================================== */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Transição suave de saída */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Esconde o loader após o carregamento */
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.loader__logo {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+.loader__logo--highlight {
+  color: var(--focus-color);
+  margin-left: 4px;
+}
+
+.loader__bar {
+  width: 240px;
+  height: 4px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+}
+
+.loader__progress {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), var(--focus-color));
+  animation: loadingAnimation 1.5s infinite ease-in-out;
+  transform-origin: left;
+}
+
+.loader__text {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+/* Animação da barra fluida */
+@keyframes loadingAnimation {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(0.7);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }

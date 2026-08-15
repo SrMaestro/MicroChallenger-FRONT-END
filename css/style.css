@@ -261,6 +261,7 @@ body {
 
 /* Tech Card Interativo */
 .tech-card {
+  align-items: center;
   position: relative;
   height: 160px;
   padding: 1.5rem;
@@ -310,6 +311,10 @@ body {
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--accent-color);
+}
+
+.tech-card__logo{
+  width: 50px;
 }
 
 .tech-card__title {
@@ -717,3 +722,4 @@ body {
     transform: scaleX(1);
   }
 }
+

@@ -1,3 +1,4 @@
+
 /**
  * main.js - Luis Felipe Leão Portfolio Scripts
  * JS Vanilla focado em performance, acessibilidade e interatividade.
